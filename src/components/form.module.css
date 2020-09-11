@@ -1,0 +1,122 @@
+.form {
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0.75rem auto 0;
+  max-width: 500px;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.label,
+.input {
+  margin: 0.3rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.input {
+  border: 1px solid #ddd;
+  border-radius: 0.25em;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.1em;
+  padding: 0.4rem;
+  width: 100%;
+}
+
+.button {
+  background: darkblue;
+  border: 1px solid darkblue;
+  border-radius: 0.25rem;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 0.9rem;
+  padding: 0.3rem;
+  width: 50%;
+  margin: 0 auto;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Loading  */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: visible;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.form.pending {
+  position: relative;
+}
+
+.form.pending::before {
+  background: white;
+  border-radius: 0.25rem;
+  content: "";
+  height: 100%;
+  width: 100%;
+  opacity: 0.85;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.form.pending::after {
+  animation: loading 1s infinite ease-out;
+  background: radial-gradient(rgba(0, 50, 255, 0), rgba(0, 50, 255, 0.75));
+  border-radius: 50%;
+  content: "";
+  height: 6rem;
+  width: 6rem;
+  position: absolute;
+  left: calc(50% - 3rem);
+  top: calc(50% - 3rem);
+}
+
+@keyframes loading {
+  from {
+    opacity: 1;
+    transform: scale(0.001);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* Error message*/
+
+.success {
+  border-radius: 0.25rem;
+  display: block;
+  margin: 0.75rem auto 0;
+  max-width: 500px;
+  text-align: center;
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid green;
+  padding: 2rem;
+}
+
+.success button {
+  border-radius: 15px;
+  border: 2px solid rgb(32, 223, 213);
+  padding: 0.6em 1em;
+  cursor: pointer;
+  letter-spacing: 0.09em;
+}
